@@ -1,29 +1,7 @@
-import io.github.keyiyoushi.gradle.api.ContentWarning
-
-plugins {
-    alias(kei.plugins.extension)
+ext {
+    extName = 'KomikArta'
+    extClass = '.KomikArta'
+    extVersionCode = 1
+    isNsfw = true
 }
-
-keiyoushi {
-    name = "Komikarta"
-    versionCode = 1
-    contentWarning = ContentWarning.NSFW
-    libVersion = "1.6"
-
-    source {
-        lang = "id"
-        baseUrl {
-            custom("https://komikarta.com/")
-        }
-        id = 1234567890123456789L
-    }
-
-    deeplink {
-        path("/manga/.*")
-        path("/reader/.*")
-    }
-}
-
-dependencies {
-    implementation(project(":lib:randommua"))
-}
+apply from: "$rootDir/common.gradle"
